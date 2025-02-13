@@ -4,6 +4,8 @@ const notes = document.getElementById("notes");
 const toggleSwitch = document.getElementById("toggleSwitch");
 const noteHeader = document.getElementById("noteHeader"); // Get the note header
 
+let selectedTask = null; // Track selected task
+
 // Load Tasks and Theme
 document.addEventListener("DOMContentLoaded", () => {
     loadTasks();
@@ -15,8 +17,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Add Task
 function addTask() {
-    const taskText = taskInput.value.trim();
+    let taskText = taskInput.value.trim();
     if (!taskText) return;
+
+    // 🔥 Capitalize first letter
+    taskText = taskText.charAt(0).toUpperCase() + taskText.slice(1);
+
     taskList.appendChild(createElement(taskText));
     saveTask();
     taskInput.value = "";
@@ -27,15 +33,19 @@ function createElement(taskText, completed = false) {
     const li = document.createElement("li");
     if (completed) li.classList.add("completed");
     li.innerHTML = `<span>${taskText}</span> <button class="delete-btn">✖</button>`;
-    
+
+    // Handle Task Click (Load Notes)
     li.addEventListener("click", () => {
+        selectedTask = taskText;
         notes.value = localStorage.getItem(taskText) || "";
         noteHeader.textContent = `📝 ${taskText}`;
     });
 
+    // Handle Delete Button
     li.querySelector(".delete-btn").addEventListener("click", (event) => {
         event.stopPropagation();
         li.remove();
+        localStorage.removeItem(taskText); // 🔥 Remove saved notes too
         saveTask();
         resetNoteHeaderIfEmpty();
     });
@@ -52,6 +62,13 @@ function saveTask() {
     localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
+// Save Notes in LocalStorage
+notes.addEventListener("input", () => {
+    if (selectedTask) {
+        localStorage.setItem(selectedTask, notes.value);
+    }
+});
+
 // Reset Note Header if No Task is Selected
 function resetNoteHeaderIfEmpty() {
     if (taskList.children.length === 0) {
@@ -63,6 +80,7 @@ function resetNoteHeaderIfEmpty() {
 function resetNoteHeader() {
     noteHeader.textContent = "📝 No Task Selected";
     notes.value = "";
+    selectedTask = null;
 }
 
 // Toggle Theme
