@@ -11,6 +11,7 @@ body {
     background: url('wp8483219.webp') no-repeat center center fixed;
     background-size: cover;
     transition: background 0.5s ease-in-out;
+    overflow: hidden;
 }
 
 /* Light Mode */
@@ -242,6 +243,37 @@ li .delete-btn:hover {
     border: 1px solid #555;
     color: #222;
 }
+
+#noteHeader{
+    margin-bottom: 10px;
+}
+
+/* Task List - Make Scrollable */
+.task-list-container {
+    max-height: 300px; /* Adjust as needed */
+    overflow-y: auto;
+    padding-right: 5px; /* Prevents scrollbar overlap */
+}
+
+/* Custom Scrollbar for Modern Look */
+.task-list-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.task-list-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
+.task-list-container::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+}
+
+.task-list-container::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.6);
+}
+
 
 /* Responsive Design */
 @media (max-width: 500px) {
