@@ -1,0 +1,189 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: url('wp8483219.webp') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+/* 3D Effect on Container */
+.container {
+    background: rgba(255, 255, 255, 0.1); /* Soft Misty White */
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 
+        8px 8px 20px rgba(255, 255, 255, 0.2), 
+        -5px -5px 15px rgba(0, 0, 0, 0.3); /* Subtle glowing effect */
+    backdrop-filter: blur(10px); /* Adds a frosted glass effect */
+    width: 100%;
+    max-width: 450px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 15px;
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+}
+
+.container:hover {
+    transform: translateY(-3px); /* Gentle Hover Effect */
+}
+
+/* Header */
+header {
+    text-align: center;
+}
+
+h1 {
+    color: #ddd; /* Light Smoky White */
+}
+
+.subtitle {
+    font-size: 14px;
+    color: #bbb; /* Muted Gray */
+}
+
+/* Input Section */
+.todo-input {
+    display: grid;
+    grid-template-columns: 2fr auto;
+    gap: 10px;
+}
+
+.todo-input input {
+    padding: 12px;
+    border: 1px solid #aaa; /* Soft Gray Border */
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border-radius: 6px;
+    font-size: 16px;
+    outline: none;
+    backdrop-filter: blur(5px);
+}
+
+.todo-input input::placeholder {
+    color: #ddd; /* Soft Gray */
+}
+
+.todo-input button {
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
+}
+
+.todo-input button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.03);
+}
+
+/* Task List */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background: rgba(255, 255, 255, 0.1); /* Lighter Smoky Gray */
+    padding: 12px;
+    margin: 6px 0;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    border-radius: 6px;
+    box-shadow: 3px 3px 7px rgba(255, 255, 255, 0.2);
+    color: #fff;
+    backdrop-filter: blur(5px);
+    cursor: pointer;
+}
+
+li.completed {
+    text-decoration: line-through;
+    color: #bbb;
+}
+
+.buttons {
+    display: flex;
+    gap: 6px;
+}
+
+.complete-btn, .delete-btn {
+    border: none;
+    padding: 6px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.complete-btn {
+    background: rgba(255, 255, 255, 0.3);
+    color: black;
+}
+
+.complete-btn:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.delete-btn {
+    background: rgba(200, 200, 200, 0.3);
+    color: black;
+}
+
+.delete-btn:hover {
+    background: rgba(200, 200, 200, 0.4);
+}
+
+/* Side Notes Section */
+.side-notes {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    text-align: left;
+}
+
+.side-notes h2 {
+    font-size: 18px;
+    color: #ddd;
+}
+
+.side-notes textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid #aaa;
+    color: #fff;
+    border-radius: 6px;
+    font-size: 16px;
+    resize: none;
+    outline: none;
+    backdrop-filter: blur(5px);
+}
+
+/* Responsive Design */
+@media (max-width: 500px) {
+    .container {
+        width: 90%;
+    }
+
+    .todo-input {
+        grid-template-columns: 1fr;
+    }
+
+    .todo-input button {
+        width: 100%;
+    }
+}  

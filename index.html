@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekend Planner - To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>📌 Weekend Planner</h1>
+            <p class="subtitle">Stay productive with your tasks & notes!</p>
+        </header>
+
+        <!-- Task Input Section -->
+        <div class="todo-input">
+            <input type="text" id="taskInput" placeholder="What do you need to do?" aria-label="New Task">
+            <button onclick="addTask()" aria-label="Add Task">➕ Add Task</button>
+        </div>
+
+        <!-- Task List -->
+        <ul id="taskList" aria-label="Task List"></ul>
+
+        <!-- Side Notes Section -->
+        <section class="side-notes">
+            <h2 id="noteHeader">📝 No Task Selected</h2>
+            <textarea id="notes" placeholder="Write down quick notes..." aria-label="Task Notes"></textarea>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
